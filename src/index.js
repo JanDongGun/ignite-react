@@ -4,14 +4,19 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 // REDUX SETUP
-import { createStore } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import rootReducer from "./reducers";
 import { Provider } from "react-redux";
-import gamesReducer from "./reducers/gamesReducer";
+import thunk from "redux-thunk";
+
+const composeEnchancer =
+  (typeof window !== "undefined" &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  compose;
 
 const store = createStore(
-  gamesReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  rootReducer,
+  composeEnchancer(applyMiddleware(thunk))
 );
 
 ReactDOM.render(
