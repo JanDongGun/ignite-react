@@ -22,6 +22,12 @@ const Home = () => {
           return <Game game={game} key={game.id} />;
         })}
       </Games>
+      <h2>New Games</h2>
+      <Games>
+        {newGames.map((game) => {
+          return <Game game={game} key={game.id} />;
+        })}
+      </Games>
     </GameList>
   );
 };
