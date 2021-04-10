@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import GameDetail from "../components/GameDetail";
+import Nav from "../components/Nav";
 
 const Home = () => {
   const location = useLocation();
@@ -20,6 +21,7 @@ const Home = () => {
 
   return (
     <GameList>
+      <Nav />
       {pathID && <GameDetail />}
 
       <h2>Upcoming Games</h2>
