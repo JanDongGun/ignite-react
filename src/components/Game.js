@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { loadDetail } from "../actions/detailAction";
 import { Link } from "react-router-dom";
+import { smallImage } from "../util";
 
 const Game = ({ game }) => {
   // Load dispatch
@@ -18,7 +19,10 @@ const Game = ({ game }) => {
       <Link to={`/game/${game.id}`}>
         <h3>{game.name}</h3>
         <p>{game.released}</p>
-        <img src={game.background_image} alt={game.name} />
+        <img
+          src={game.background_image && smallImage(game.background_image, 640)}
+          alt={game.name}
+        />
       </Link>
     </StyledGame>
   );
